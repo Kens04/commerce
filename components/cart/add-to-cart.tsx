@@ -26,9 +26,9 @@ export function AddToCart({
   );
   const selectedVariantId = variant?.id || defaultVariantId;
   const title = !availableForSale
-    ? 'Out of stock'
+    ? '売り切れ'
     : !selectedVariantId
-    ? 'Please select options'
+    ? 'オプションを選択してください'
     : undefined;
 
   return (
@@ -62,7 +62,7 @@ export function AddToCart({
       <div className="absolute left-0 ml-4">
         {!isPending ? <PlusIcon className="h-5" /> : <LoadingDots className="mb-3 bg-white" />}
       </div>
-      <span>{availableForSale ? 'Add To Cart' : 'Out Of Stock'}</span>
+      <span>{availableForSale ? 'カートに追加' : '売り切れ'}</span>
     </button>
   );
 }
