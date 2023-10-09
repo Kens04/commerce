@@ -36,7 +36,7 @@ const Contact = () => {
         console.error('エラーが出ました' + error);
       }
     } else {
-      console.error('環境変数が設定されていません');
+      console.error('環境変数が設定されていません。');
     }
   };
 
