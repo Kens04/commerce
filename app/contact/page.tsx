@@ -31,7 +31,8 @@ const Contact = () => {
 
     if (serviceId && templateId && publicId) {
       try {
-        await emailjs.send(serviceId, templateId, recordData, publicId);
+        const response = await emailjs.send(serviceId, templateId, recordData, publicId);
+        console.log(response);
       } catch (error) {
         console.error('エラーが出ました' + error);
       }
