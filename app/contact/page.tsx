@@ -3,7 +3,6 @@
 import { useForm } from 'react-hook-form';
 import { validationSchema } from 'utils/validation-schema';
 import { valibotResolver } from '@hookform/resolvers/valibot';
-import emailjs from '@emailjs/browser';
 
 interface FormData {
   name: string;
@@ -18,25 +17,20 @@ const Contact = () => {
     formState: { errors }
   } = useForm<FormData>({ mode: 'onChange', resolver: valibotResolver(validationSchema) });
 
-  const submitMail = async (data: FormData) => {
-    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-    const publicId = process.env.REACT_APP_EMAILJS_PUBLIC_ID;
+  const onSubmit = handleSubmit(async (data) => {
+    const formData = new FormData();
+    Object.entries(data).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
 
-    const recordData: Record<string, unknown> = {
-      name: data.name,
-      email: data.email,
-      message: data.message
-    };
-
-    try {
-      const response = await emailjs.send(serviceId!, templateId!, recordData, publicId!);
-      console.log(response);
-    } catch (error) {
-      console.log(process.env.REACT_APP_EMAILJS_PUBLIC_ID);
-      console.error('エラーが出ました。' + error);
-    }
-  };
+    await fetch('https://farmlys.form.newt.so/v1/RoRLD9idA', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        Accept: 'application/json'
+      }
+    });
+  });
 
   return (
     <div className="mx-auto max-w-[1200px] px-5 pb-14 pt-10">
@@ -44,7 +38,7 @@ const Contact = () => {
         <h2 className="text-title whitespace-nowrap text-4xl md:px-24">お問い合わせ</h2>
       </div>
       <div className="mx-auto mt-8 flex w-full flex-col justify-around md:mt-16 md:w-3/5">
-        <form onSubmit={handleSubmit(submitMail)}>
+        <form onSubmit={onSubmit}>
           <div>
             <label className="text-title w-full md:text-xl" htmlFor="name">
               お名前
