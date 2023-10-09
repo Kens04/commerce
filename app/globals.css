@@ -6,6 +6,8 @@
 @import '@radix-ui/colors/grass-dark.css';
 @import '@radix-ui/colors/gray.css';
 @import '@radix-ui/colors/gray-dark.css';
+@import '@radix-ui/colors/tomato.css';
+@import '@radix-ui/colors/tomato-dark.css';
 
 @media (prefers-color-scheme: dark) {
   html {
@@ -24,6 +26,12 @@
 }
 .text-body {
   color: var(--gray-11);
+}
+.text-error {
+  color: var(--tomato-11);
+}
+.input-border {
+  border: 1px solid var(--gray-7);
 }
 
 .button-bg {
