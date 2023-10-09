@@ -29,15 +29,11 @@ const Contact = () => {
       message: data.message
     };
 
-    if (serviceId && templateId && publicId) {
-      try {
-        const response = await emailjs.send(serviceId, templateId, recordData, publicId);
-        console.log(response);
-      } catch (error) {
-        console.error('エラーが出ました' + error);
-      }
-    } else {
-      console.error('環境変数が設定されていません。');
+    try {
+      const response = await emailjs.send(serviceId!, templateId!, recordData, publicId!);
+      console.log(response);
+    } catch (error) {
+      console.error('エラーが出ました' + error);
     }
   };
 
