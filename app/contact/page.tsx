@@ -33,6 +33,7 @@ const Contact = () => {
       const response = await emailjs.send(serviceId!, templateId!, recordData, publicId!);
       console.log(response);
     } catch (error) {
+      console.log(process.env.REACT_APP_EMAILJS_PUBLIC_ID);
       console.error('エラーが出ました。' + error);
     }
   };
