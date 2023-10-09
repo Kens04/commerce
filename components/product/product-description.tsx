@@ -8,8 +8,11 @@ export function ProductDescription({ product }: { product: Product }) {
   return (
     <>
       <div className="mb-6 flex flex-col border-b pb-6 dark:border-neutral-700">
-        <h1 className="mb-2 text-5xl font-medium">{product.title}</h1>
-        <div className="mr-auto w-auto rounded-full bg-blue-600 p-2 text-sm text-white">
+        <h1 className="mb-2 text-5xl">{product.title}</h1>
+        <div className="mt-5">
+          <span className="text-title text-xl font-semibold">価格</span>
+        </div>
+        <div className="text-body text-4xl">
           <Price
             amount={product.priceRange.maxVariantPrice.amount}
             currencyCode={product.priceRange.maxVariantPrice.currencyCode}
@@ -20,7 +23,7 @@ export function ProductDescription({ product }: { product: Product }) {
 
       {product.descriptionHtml ? (
         <Prose
-          className="mb-6 text-sm leading-tight dark:text-white/[60%]"
+          className="text-body mb-6 text-base leading-normal dark:text-white/[60%]"
           html={product.descriptionHtml}
         />
       ) : null}

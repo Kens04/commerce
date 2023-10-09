@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '@radix-ui/colors/grass.css';
+@import '@radix-ui/colors/grass-dark.css';
+@import '@radix-ui/colors/gray.css';
+@import '@radix-ui/colors/gray-dark.css';
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -12,6 +17,20 @@
   img[loading='lazy'] {
     clip-path: inset(0.6px);
   }
+}
+
+.text-title {
+  color: var(--gray-12);
+}
+.text-body {
+  color: var(--gray-11);
+}
+
+.button-bg {
+  background-color: var(--grass-9);
+}
+.button-bg:hover {
+  background-color: var(--grass-10);
 }
 
 a,
