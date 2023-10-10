@@ -3,7 +3,6 @@
 import { useForm } from 'react-hook-form';
 import { validationSchema } from 'utils/validation-schema';
 import { valibotResolver } from '@hookform/resolvers/valibot';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { useRouter } from 'next/router';
 
 interface FormData {
@@ -22,13 +21,7 @@ const Contact = () => {
     formState: { errors }
   } = useForm<FormData>({ mode: 'onChange', resolver: valibotResolver(validationSchema) });
 
-  const { executeRecaptcha } = useGoogleReCaptcha();
-
   const onSubmit = handleSubmit(async (data) => {
-    if (!executeRecaptcha) return;
-    const token = await executeRecaptcha('submit');
-    data.googleReCaptchaToken = token;
-
     const formData = new FormData();
     Object.entries(data).forEach(([key, value]) => {
       formData.append(key, value);
