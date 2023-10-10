@@ -37,12 +37,12 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        router.push('/thanks');
+        router.push('contact/thanks');
       } else {
-        router.push('/error');
+        router.push('contact/error');
       }
     } catch (err) {
-      router.push('/error');
+      router.push('contact/error');
     }
   });
 
