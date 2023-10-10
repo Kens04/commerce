@@ -3,33 +3,54 @@
 import { useForm } from 'react-hook-form';
 import { validationSchema } from 'utils/validation-schema';
 import { valibotResolver } from '@hookform/resolvers/valibot';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { useRouter } from 'next/router';
 
 interface FormData {
   name: string;
   email: string;
   message: string;
+  googleReCaptchaToken: string;
 }
 
 const Contact = () => {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm<FormData>({ mode: 'onChange', resolver: valibotResolver(validationSchema) });
 
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const onSubmit = handleSubmit(async (data) => {
+    if (!executeRecaptcha) return;
+    const token = await executeRecaptcha('submit');
+    data.googleReCaptchaToken = token;
+
     const formData = new FormData();
     Object.entries(data).forEach(([key, value]) => {
       formData.append(key, value);
     });
 
-    await fetch('https://farmlys.form.newt.so/v1/RoRLD9idA', {
-      method: 'POST',
-      body: formData,
-      headers: {
-        Accept: 'application/json'
+    try {
+      const response = await fetch('https://farmlys.form.newt.so/v1/RoRLD9idA', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        router.push('/thanks');
+      } else {
+        router.push('/error');
       }
-    });
+    } catch (err) {
+      router.push('/error');
+    }
   });
 
   return (
