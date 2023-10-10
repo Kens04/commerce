@@ -3,7 +3,7 @@
 import { useForm } from 'react-hook-form';
 import { validationSchema } from 'utils/validation-schema';
 import { valibotResolver } from '@hookform/resolvers/valibot';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 interface FormData {
   name: string;
