@@ -1,9 +1,9 @@
 'use client';
 
-import { useForm } from 'react-hook-form';
-import { validationSchema } from 'utils/validation-schema';
 import { valibotResolver } from '@hookform/resolvers/valibot';
 import { useRouter } from 'next/navigation';
+import { useForm } from 'react-hook-form';
+import { validationSchema } from 'utils/validation-schema';
 
 interface FormData {
   name: string;
