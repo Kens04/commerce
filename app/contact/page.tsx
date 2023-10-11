@@ -49,7 +49,7 @@ const Contact = () => {
   return (
     <div className="mx-auto max-w-[1200px] px-5 pb-14 pt-10">
       <div className="text-center">
-        <h2 className="text-title whitespace-nowrap text-4xl md:px-24">お問い合わせせ</h2>
+        <h2 className="text-title whitespace-nowrap text-4xl md:px-24">お問い合わせ</h2>
       </div>
       <div className="mx-auto mt-8 flex w-full flex-col justify-around md:mt-16 md:w-3/5">
         <form onSubmit={onSubmit}>

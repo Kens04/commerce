@@ -317,11 +317,11 @@ export async function getCollections(): Promise<Collection[]> {
   const collections = [
     {
       handle: '',
-      title: 'All',
-      description: 'All products',
+      title: 'すべての商品',
+      description: 'すべての商品',
       seo: {
-        title: 'All',
-        description: 'All products'
+        title: 'すべての商品',
+        description: 'すべての商品'
       },
       path: '/search',
       updatedAt: new Date().toISOString()
