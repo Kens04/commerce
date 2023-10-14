@@ -1,4 +1,6 @@
 import { Carousel } from 'components/carousel';
+import { LettuceCollection } from 'components/collections/lettuce-collection';
+import { OnionCollection } from 'components/collections/onion-collection';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
 import { Suspense } from 'react';
@@ -16,6 +18,8 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
+      <OnionCollection />
+      <LettuceCollection />
       <ThreeItemGrid />
       <Suspense>
         <Carousel />

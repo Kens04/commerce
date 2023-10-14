@@ -6,7 +6,7 @@ import { getProducts } from 'lib/shopify';
 export const runtime = 'edge';
 
 export const metadata = {
-  title: 'Search',
+  title: '野菜一覧',
   description: 'Search for products in the store.'
 };
 
