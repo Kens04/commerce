@@ -7,7 +7,7 @@ import { getCollectionProducts } from 'lib/shopify';
 import type { Product } from 'lib/shopify/types';
 import Link from 'next/link';
 
-function OnionCollectionDescription({ product }: { product: Product }) {
+function KinuhikariCollectionDescription({ product }: { product: Product }) {
   return (
     <>
       <div className="mb-6 flex flex-col border-b pb-6 dark:border-neutral-700">
@@ -36,7 +36,7 @@ function OnionCollectionDescription({ product }: { product: Product }) {
   );
 }
 
-function OnionCollectionItem({
+function KinuhikariCollectionItem({
   item,
   size,
   priority
@@ -70,10 +70,10 @@ function OnionCollectionItem({
   );
 }
 
-export async function OnionCollection() {
+export async function KinuhikariCollection() {
   // Collections that start with `hidden-*` are hidden from the search page.
   const homepageItems = await getCollectionProducts({
-    collection: 'onion-collection'
+    collection: 'kinuhikari-collection'
   });
 
   if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2]) return null;
@@ -83,20 +83,20 @@ export async function OnionCollection() {
   return (
     <section className="mx-auto max-w-screen-xl px-4 pb-12 md:pb-20">
       <div className="border-b border-gray-200 py-5 text-center">
-        <h2 className="text-title text-3xl font-bold md:text-4xl">淡路島産玉ねぎ一覧</h2>
+        <h2 className="text-title text-3xl font-bold md:text-4xl">淡路島産キヌヒカリ一覧</h2>
       </div>
-      <div className="mt-5 flex space-x-4 overflow-x-auto md:mt-6 md:grid md:grid-cols-3 md:gap-10">
-        <div className="mr-4 flex w-full flex-shrink-0 flex-col md:mr-0">
-          <OnionCollectionItem size="half" item={firstProduct} priority={true} />
-          <OnionCollectionDescription product={firstProduct} />
+      <div className="mt-5 grid gap-4 md:mt-6 md:grid-cols-3 md:gap-10">
+        <div className="flex flex-col">
+          <KinuhikariCollectionItem size="half" item={firstProduct} priority={true} />
+          <KinuhikariCollectionDescription product={firstProduct} />
         </div>
-        <div className="mr-4 flex w-full flex-shrink-0 flex-col md:mr-0">
-          <OnionCollectionItem size="half" item={secondProduct} priority={true} />
-          <OnionCollectionDescription product={secondProduct} />
+        <div className="flex flex-col">
+          <KinuhikariCollectionItem size="half" item={secondProduct} priority={true} />
+          <KinuhikariCollectionDescription product={secondProduct} />
         </div>
-        <div className="flex w-full flex-shrink-0 flex-col">
-          <OnionCollectionItem size="half" item={thirdProduct} />
-          <OnionCollectionDescription product={thirdProduct} />
+        <div className="flex flex-col">
+          <KinuhikariCollectionItem size="half" item={thirdProduct} />
+          <KinuhikariCollectionDescription product={thirdProduct} />
         </div>
       </div>
     </section>

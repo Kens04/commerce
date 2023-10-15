@@ -25,12 +25,12 @@ function ThreeItemGridItem({
           }
           priority={priority}
           alt={item.title}
-          label={{
-            position: size === 'full' ? 'center' : 'bottom',
-            title: item.title as string,
-            amount: item.priceRange.maxVariantPrice.amount,
-            currencyCode: item.priceRange.maxVariantPrice.currencyCode
-          }}
+          // label={{
+          //   position: size === 'full' ? 'center' : 'bottom',
+          //   title: item.title as string,
+          //   amount: item.priceRange.maxVariantPrice.amount,
+          //   currencyCode: item.priceRange.maxVariantPrice.currencyCode
+          // }}
         />
       </Link>
     </div>
@@ -48,10 +48,15 @@ export async function ThreeItemGrid() {
   const [firstProduct, secondProduct, thirdProduct] = homepageItems;
 
   return (
-    <section className="mx-auto grid max-w-screen-2xl gap-4 px-4 pb-12 md:grid-cols-6">
-      <ThreeItemGridItem size="half" item={firstProduct} priority={true} />
-      <ThreeItemGridItem size="half" item={secondProduct} priority={true} />
-      <ThreeItemGridItem size="half" item={thirdProduct} />
+    <section className="mx-auto max-w-screen-2xl px-4 pb-12 md:pb-20">
+      <div className="border-b border-gray-200 py-5 text-center">
+        <h2 className="text-title text-3xl font-bold md:text-4xl">新着商品</h2>
+      </div>
+      <div className="mt-5 grid gap-4 md:mt-6 md:grid-cols-6 md:gap-10">
+        <ThreeItemGridItem size="half" item={firstProduct} priority={true} />
+        <ThreeItemGridItem size="half" item={secondProduct} priority={true} />
+        <ThreeItemGridItem size="half" item={thirdProduct} />
+      </div>
     </section>
   );
 }

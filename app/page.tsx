@@ -1,4 +1,5 @@
 import { Carousel } from 'components/carousel';
+import { KinuhikariCollection } from 'components/collections/kinuhikari-collection';
 import { LettuceCollection } from 'components/collections/lettuce-collection';
 import { OnionCollection } from 'components/collections/onion-collection';
 import { ThreeItemGrid } from 'components/grid/three-items';
@@ -20,6 +21,7 @@ export default async function HomePage() {
     <>
       <OnionCollection />
       <LettuceCollection />
+      <KinuhikariCollection />
       <ThreeItemGrid />
       <Suspense>
         <Carousel />
