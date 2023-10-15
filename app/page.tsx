@@ -3,6 +3,7 @@ import { KinuhikariCollection } from 'components/collections/kinuhikari-collecti
 import { LettuceCollection } from 'components/collections/lettuce-collection';
 import { OnionCollection } from 'components/collections/onion-collection';
 import { ThreeItemGrid } from 'components/grid/three-items';
+import { Instagram } from 'components/instagram/instagram';
 import Footer from 'components/layout/footer';
 import { Suspense } from 'react';
 
@@ -25,6 +26,7 @@ export default async function HomePage() {
       <ThreeItemGrid />
       <Suspense>
         <Carousel />
+        <Instagram />
         <Suspense>
           <Footer />
         </Suspense>
