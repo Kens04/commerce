@@ -20,7 +20,7 @@ const Instagram = ({ posts }: Props) => {
       <div className="mt-10 grid w-full grid-cols-2 gap-x-2 gap-y-2 md:grid-cols-3 md:gap-x-4 md:gap-y-4">
         {posts.map((post) => {
           return (
-            <Link key={post.id} href={post.permalink}>
+            <Link key={post.id} href={post.permalink} target="_blank" rel="noopener noreferrer">
               {post.media_type === 'VIDEO' ? (
                 <video
                   className="h-auto w-full object-cover md:h-full md:max-h-[400px]"
