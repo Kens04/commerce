@@ -3,7 +3,8 @@ import { KinuhikariCollection } from 'components/collections/kinuhikari-collecti
 import { LettuceCollection } from 'components/collections/lettuce-collection';
 import { OnionCollection } from 'components/collections/onion-collection';
 import { ThreeItemGrid } from 'components/grid/three-items';
-import { Instagram } from 'components/instagram/instagram';
+import { FetchInstagramData } from 'components/instagram/fetchInstagramData';
+import InstagramContainer from 'components/instagram/instagramContainer';
 import Footer from 'components/layout/footer';
 import { Suspense } from 'react';
 
@@ -18,6 +19,8 @@ export const metadata = {
 };
 
 export default async function HomePage() {
+  const posts = await FetchInstagramData();
+
   return (
     <>
       <OnionCollection />
@@ -26,7 +29,7 @@ export default async function HomePage() {
       <ThreeItemGrid />
       <Suspense>
         <Carousel />
-        <Instagram />
+        <InstagramContainer posts={posts} />
         <Suspense>
           <Footer />
         </Suspense>

@@ -1,45 +1,45 @@
 import Link from 'next/link';
-import useSWR from 'swr';
 
-type PostType = {
+export type PostType = {
   id: string;
   permalink: string;
   media_url: string;
+  media_type: string;
 };
 
-const fetcher = async (url: string) => {
-  const res = await fetch(url);
-  const json = await res.json();
-  return json;
+type Props = {
+  posts: PostType[];
 };
 
-export const Instagram = () => {
-  const { data: posts, error } = useSWR(
-    'https://graph.facebook.com/v15.0/17841451572101189/media?fields=id%2Cmedia_type%2Cmedia_url%2Cthumbnail_url%2Cpermalink&limit=5&access_token=EAANBm9bZBS0sBAIj3AqCVCQQQyKHwZA9TDdZAFbSoYXnEeS7yXSHaZCUoQgLYIBVb6eQQwQgoWR9Fnye46yo121JofsR2wv7y4yZBNVhL1lsMXq0Q7ZAZAzI4cvFzOElBtQHDyqORACO4GQ75l0LirR8BfkFbs6W2ZAJiZBxn0dZA2OiX6wQyzEyOfeReUBznD8rBoNcS03ZAuYVQZDZD',
-    fetcher
-  );
-
-  if (error) return <div>Error loading posts</div>;
-  if (!posts) return <div>Loading...</div>;
-
+const Instagram = ({ posts }: Props) => {
   return (
-    <div className="mx-auto max-w-[1200px] py-10 text-center md:py-12">
-      <h2 className="title">インスタグラム</h2>
-      <div className="mt-10 flex w-full flex-wrap justify-center gap-3 md:flex-nowrap">
-        {posts &&
-          posts.data &&
-          posts.data.map((post: PostType) => {
-            return (
-              <Link className="w-28 md:w-1/5" key={post.id} href={post.permalink}>
+    <section className="mx-auto max-w-screen-xl px-4 pb-12 md:pb-20">
+      <div className="border-b border-gray-200 py-5 text-center">
+        <h2 className="text-title text-2xl font-bold md:text-4xl">インスタグラム</h2>
+      </div>
+      <div className="mt-10 grid w-full grid-cols-2 gap-x-2 gap-y-2 md:grid-cols-3 md:gap-x-4 md:gap-y-4">
+        {posts.map((post) => {
+          return (
+            <Link key={post.id} href={post.permalink}>
+              {post.media_type === 'VIDEO' ? (
+                <video
+                  className="h-auto w-full object-cover md:h-full md:max-h-[400px]"
+                  src={post.media_url}
+                  controls
+                />
+              ) : (
                 <img
-                  className="h-28 w-full object-cover md:h-full"
+                  className="h-auto w-full object-cover md:h-full md:max-h-[400px]"
                   src={post.media_url}
                   alt="インスタグラムの画像"
                 />
-              </Link>
-            );
-          })}
+              )}
+            </Link>
+          );
+        })}
       </div>
-    </div>
+    </section>
   );
 };
+
+export default Instagram;
