@@ -48,7 +48,7 @@ export async function ThreeItemGrid() {
   const [firstProduct, secondProduct, thirdProduct] = homepageItems;
 
   return (
-    <section className="mx-auto max-w-screen-2xl px-4 pb-12 md:pb-20">
+    <section className="mx-auto max-w-screen-xl px-4 pb-12 md:pb-20">
       <div className="border-b border-gray-200 py-5 text-center">
         <h2 className="text-title text-2xl font-bold md:text-4xl">新着商品</h2>
       </div>

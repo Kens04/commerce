@@ -23,13 +23,13 @@ const Instagram = ({ posts }: Props) => {
             <Link key={post.id} href={post.permalink} target="_blank" rel="noopener noreferrer">
               {post.media_type === 'VIDEO' ? (
                 <video
-                  className="h-auto w-full object-cover md:h-full md:max-h-[400px]"
+                  className="h-auto w-full rounded-md object-cover md:h-full md:max-h-[350px]"
                   src={post.media_url}
                   controls
                 />
               ) : (
                 <img
-                  className="h-auto w-full object-cover md:h-full md:max-h-[400px]"
+                  className="h-auto w-full rounded-md object-cover md:h-full md:max-h-[350px]"
                   src={post.media_url}
                   alt="インスタグラムの画像"
                 />
