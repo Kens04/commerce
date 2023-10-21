@@ -1,6 +1,16 @@
 import { client } from 'lib/micro-cms/client';
+import type { MicroCMSQueries } from 'microcms-js-sdk';
+import { notFound } from 'next/navigation';
 import { PostType } from './news';
 
+// ニュースの型定義
+export type News = {
+  title: string;
+  description: string;
+  content: string;
+};
+
+// ニュース一覧を取得
 export const FetchNewsData = async (): Promise<PostType> => {
   const res = await client.get<PostType>({
     endpoint: 'news'
@@ -8,22 +18,17 @@ export const FetchNewsData = async (): Promise<PostType> => {
   return res;
 };
 
-export const fetchPostData = async (id: string): Promise<PostType> => {
-  const res = await fetch(`https://farmlys-news.microcms.io/api/v1/news/${id}`, {
-    headers: {
-      'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY
-    } as HeadersInit
-  }).then((res) => res.json());
-  return res;
-};
+// ニュースの詳細を取得
+export const getNewsDetail = async (contentId: string, queries?: MicroCMSQueries) => {
+  const detailData = await client
+    .getListDetail<News>({
+      endpoint: 'news',
+      contentId,
+      queries
+    })
+    .catch(notFound);
 
-export const getPosts = async (): Promise<PostType[]> => {
-  const res = await fetch('https://farmlys-news.microcms.io/api/v1/news', {
-    headers: {
-      'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY
-    } as HeadersInit
-  }).then((res) => res.json());
-  return res.contents;
+  return detailData;
 };
 
 export default FetchNewsData;
