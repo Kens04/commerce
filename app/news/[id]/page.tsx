@@ -1,8 +1,7 @@
-import { PostType } from 'components/news/news';
 import { NextPage } from 'next';
 import { generateStaticParams } from 'components/news/fetch-news-data';
 
-const NewsId: NextPage<PostType> = async () => {
+const NewsId: NextPage = async () => {
   const postsArray = await generateStaticParams();
 
   const post = postsArray[0];
