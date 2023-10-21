@@ -8,25 +8,22 @@ export const FetchNewsData = async (): Promise<PostType> => {
   return res;
 };
 
-export async function generateStaticParams() {
-  const posts = await client.get({ endpoint: 'news' });
+export const fetchPostData = async (id: string): Promise<PostType> => {
+  const res = await fetch(`https://farmlys-news.microcms.io/api/v1/news/${id}`, {
+    headers: {
+      'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY
+    } as HeadersInit
+  }).then((res) => res.json());
+  return res;
+};
 
-  if (!posts || !posts.contents) {
-    throw new Error('Invalid posts object');
-  }
-
-  const ids = posts.contents.map((post: { id: string }) => post.id);
-  const data = await Promise.all(
-    ids.map((id: string) =>
-      fetch(`https://farmlys-news.microcms.io/api/v1/news/${id}`, {
-        headers: {
-          'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY
-        } as HeadersInit
-      }).then((res) => res.json())
-    )
-  );
-
-  return data;
-}
+export const getPosts = async (): Promise<PostType[]> => {
+  const res = await fetch('https://farmlys-news.microcms.io/api/v1/news', {
+    headers: {
+      'X-MICROCMS-API-KEY': process.env.MICROCMS_API_KEY
+    } as HeadersInit
+  }).then((res) => res.json());
+  return res.contents;
+};
 
 export default FetchNewsData;

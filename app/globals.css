@@ -21,6 +21,12 @@
   }
 }
 
+.news-title {
+  color: var(--gray-12);
+}
+.news-title:hover {
+  color: var(--gray-10);
+}
 .text-title {
   color: var(--gray-12);
 }
