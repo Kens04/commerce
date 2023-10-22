@@ -8,7 +8,7 @@ import { FetchInstagramData } from 'components/instagram/fetch-instagram-data';
 import InstagramContainer from 'components/instagram/instagram-container';
 import Footer from 'components/layout/footer';
 import FetchNewsData from 'components/news/fetch-news-data';
-import News from 'components/news/news';
+import NewsContainer from 'components/news/news-container';
 import MainView from 'components/section/main-view';
 import { Suspense } from 'react';
 
@@ -24,12 +24,12 @@ export const metadata = {
 
 export default async function HomePage() {
   const posts = await FetchInstagramData();
-  const props = await FetchNewsData();
+  const props = await FetchNewsData({ limit: 3 });
 
   return (
     <>
       <MainView />
-      <News posts={props} />
+      <NewsContainer posts={props} />
       <OnionCollection />
       <LettuceCollection />
       <KinuhikariCollection />

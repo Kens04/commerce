@@ -39,7 +39,15 @@ export default async function Navbar() {
               ))}
               <li>
                 <Link
-                  href="/contact"
+                  href="/news/"
+                  className="text-body text-base underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
+                >
+                  ニュース一覧
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact/"
                   className="text-body text-base underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
                 >
                   お問い合わせ

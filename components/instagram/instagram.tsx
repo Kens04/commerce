@@ -28,6 +28,7 @@ const Instagram = ({ posts }: Props) => {
                   controls
                 />
               ) : (
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
                   className="h-auto w-full rounded-md object-cover md:h-full md:max-h-[350px]"
                   src={post.media_url}
