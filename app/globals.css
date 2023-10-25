@@ -46,6 +46,12 @@
 .button-bg:hover {
   background-color: var(--grass-10);
 }
+.page-text {
+  color: var(--grass-12);
+}
+.page-text:hover {
+  color: var(--grass-11);
+}
 
 a,
 input,

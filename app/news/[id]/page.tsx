@@ -9,11 +9,15 @@ const NewsId = async ({ params }: { params: { id: string } }) => {
   const post = await getNewsDetail(params.id);
 
   return (
-    <div className="prose">
-      <h1>{post.title}</h1>
-      <time dateTime={post.publishedAt}>{dayjs(post.publishedAt).format('YYYY年MM月DD日')}</time>
-      <div dangerouslySetInnerHTML={{ __html: post.content || '' }} />
-    </div>
+    <section className="prose mx-auto max-w-screen-xl px-4 pb-12 md:pb-20">
+      <div className="border-b border-gray-200 py-5 text-center">
+        <h2 className="text-title text-2xl font-bold md:text-4xl">{post.title}</h2>
+        <time dateTime={post.publishedAt}>{dayjs(post.publishedAt).format('YYYY年MM月DD日')}</time>
+      </div>
+      <div className="mt-5">
+        <div dangerouslySetInnerHTML={{ __html: post.content || '' }} />
+      </div>
+    </section>
   );
 };
 

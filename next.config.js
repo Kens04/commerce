@@ -9,6 +9,7 @@ module.exports = {
   },
   images: {
     formats: ['image/avif', 'image/webp'],
+    domains: ['images.microcms-assets.io'],
     remotePatterns: [
       {
         protocol: 'https',

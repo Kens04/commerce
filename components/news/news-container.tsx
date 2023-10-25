@@ -17,7 +17,7 @@ const NewsContainer = ({ posts }: NewsContainerProps) => {
   return (
     <section className="mx-auto max-w-screen-xl px-4 pb-12 md:pb-20">
       <div className="border-b border-gray-200 py-5 text-center">
-        <h2 className="text-title text-2xl font-bold md:text-4xl">ニュース</h2>
+        <h2 className="text-title text-2xl font-bold md:text-4xl">お知らせ</h2>
       </div>
       <div>
         <ul>

@@ -5,6 +5,9 @@ import { notFound } from 'next/navigation';
 // ニュースの型定義
 export type News = {
   title: string;
+  image: {
+    url: string;
+  };
   description: string;
   content: string;
 };

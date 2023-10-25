@@ -42,7 +42,7 @@ export default async function Navbar() {
                   href="/news/"
                   className="text-body text-base underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
                 >
-                  ニュース一覧
+                  お知らせ
                 </Link>
               </li>
               <li>
