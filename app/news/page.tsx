@@ -6,7 +6,6 @@ import Link from 'next/link';
 
 const News = async () => {
   const posts = await getNewsList({ limit: 3 });
-  // console.log(posts);
 
   return (
     <section className="mx-auto max-w-screen-xl px-4 pb-12 md:pb-20">
