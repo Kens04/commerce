@@ -1,7 +1,7 @@
 import { getNewsList } from 'components/news/fetch-news-data';
 import Pagination from 'components/news/pagination/pagination';
 import dayjs from 'dayjs';
-import Image from 'next/image';
+// import Image from 'next/image';
 import Link from 'next/link';
 
 const News = async () => {
@@ -21,7 +21,7 @@ const News = async () => {
                   className="news-title flex flex-wrap items-center gap-2 md:gap-4"
                   href={`/news/${content.id}`}
                 >
-                  {content.image.url && (
+                  {/* {content.image.url && (
                     <Image
                       src={content.image.url}
                       alt={content.title}
@@ -29,7 +29,7 @@ const News = async () => {
                       width={300}
                       height={300}
                     />
-                  )}
+                  )} */}
                   <div>
                     <time
                       className="text-sm text-gray-500 md:text-base"
