@@ -1,7 +1,6 @@
 import { getNewsList } from 'components/news/fetch-news-data';
 import Pagination from 'components/news/pagination/pagination';
 import dayjs from 'dayjs';
-import Image from 'next/image';
 import Link from 'next/link';
 
 const News = async () => {
@@ -22,12 +21,10 @@ const News = async () => {
                   href={`/news/${content.id}`}
                 >
                   {content.image.url && (
-                    <Image
+                    <img
                       src={content.image.url}
                       alt={content.title}
                       className="h-auto max-w-full"
-                      width={300}
-                      height={300}
                     />
                   )}
                   <div>
