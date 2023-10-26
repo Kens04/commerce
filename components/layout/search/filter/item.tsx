@@ -1,6 +1,5 @@
 'use client';
 
-import clsx from 'clsx';
 import { SortFilterItem } from 'lib/constants';
 import { createUrl } from 'lib/utils';
 import Link from 'next/link';
@@ -20,12 +19,9 @@ function PathFilterItem({ item }: { item: PathFilterItem }) {
     <li className="mt-4 flex text-black dark:text-white" key={item.title}>
       <DynamicTag
         href={createUrl(item.path, newParams)}
-        className={clsx(
-          'w-full text-base underline-offset-4 hover:underline dark:hover:text-neutral-100',
-          {
-            'underline underline-offset-4': active
-          }
-        )}
+        className={`w-full text-base underline-offset-4 hover:underline dark:hover:text-neutral-100 ${
+          active ? 'underline underline-offset-4' : ''
+        }`}
       >
         {item.title}
       </DynamicTag>
@@ -52,9 +48,9 @@ function SortFilterItem({ item }: { item: SortFilterItem }) {
       <DynamicTag
         prefetch={!active ? false : undefined}
         href={href}
-        className={clsx('w-full hover:underline hover:underline-offset-4', {
-          'underline underline-offset-4': active
-        })}
+        className={`w-full hover:underline hover:underline-offset-4 ${
+          active ? 'underline underline-offset-4' : ''
+        }`}
       >
         {item.title}
       </DynamicTag>

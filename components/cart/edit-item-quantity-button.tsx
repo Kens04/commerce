@@ -1,7 +1,6 @@
 'use client';
 
 import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
-import clsx from 'clsx';
 import { updateItemQuantity } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
 import type { CartItem } from 'lib/shopify/types';
@@ -23,13 +22,9 @@ function SubmitButton({ type }: { type: 'plus' | 'minus' }) {
       }}
       aria-label={type === 'plus' ? 'Increase item quantity' : 'Reduce item quantity'}
       aria-disabled={pending}
-      className={clsx(
-        'ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full px-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80',
-        {
-          'cursor-not-allowed': pending,
-          'ml-auto': type === 'minus'
-        }
-      )}
+      className={`ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full px-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80 ${
+        pending ? 'cursor-not-allowed' : ''
+      } ${type === 'minus' ? 'ml-auto' : ''}`}
     >
       {pending ? (
         <LoadingDots className="bg-black dark:bg-white" />

@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-
 export default function LogoIcon(props: React.ComponentProps<'svg'>) {
   return (
     <svg
@@ -7,7 +5,7 @@ export default function LogoIcon(props: React.ComponentProps<'svg'>) {
       aria-label={`${process.env.SITE_NAME} logo`}
       viewBox="0 0 40 40"
       {...props}
-      className={clsx('h-4 w-4', props.className)}
+      className={`h-4 w-4 ${props.className || ''}`}
     >
       <g transform="translate(0,40) scale(0.1,-0.1)">
         <path d="M190 315 c0 -8 5 -15 10 -15 6 0 10 7 10 15 0 8 -4 15 -10 15 -5 0 -10 -7 -10 -15z" />

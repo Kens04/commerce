@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { Suspense } from 'react';
 
 import { getCollections } from 'lib/shopify';
@@ -18,16 +17,16 @@ export default function Collections() {
     <Suspense
       fallback={
         <div className="col-span-2 hidden h-[400px] w-full flex-none py-4 lg:block">
-          <div className={clsx(skeleton, activeAndTitles)} />
-          <div className={clsx(skeleton, activeAndTitles)} />
-          <div className={clsx(skeleton, items)} />
-          <div className={clsx(skeleton, items)} />
-          <div className={clsx(skeleton, items)} />
-          <div className={clsx(skeleton, items)} />
-          <div className={clsx(skeleton, items)} />
-          <div className={clsx(skeleton, items)} />
-          <div className={clsx(skeleton, items)} />
-          <div className={clsx(skeleton, items)} />
+          <div className={`${skeleton} ${activeAndTitles}`} />
+          <div className={`${skeleton} ${activeAndTitles}`} />
+          <div className={`${skeleton} ${items}`} />
+          <div className={`${skeleton} ${items}`} />
+          <div className={`${skeleton} ${items}`} />
+          <div className={`${skeleton} ${items}`} />
+          <div className={`${skeleton} ${items}`} />
+          <div className={`${skeleton} ${items}`} />
+          <div className={`${skeleton} ${items}`} />
+          <div className={`${skeleton} ${items}`} />
         </div>
       }
     >
