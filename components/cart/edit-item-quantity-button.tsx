@@ -4,12 +4,7 @@ import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
 import { updateItemQuantity } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
 import type { CartItem } from 'lib/shopify/types';
-import {
-  // @ts-ignore
-  experimental_useFormState as useFormState,
-  // @ts-ignore
-  experimental_useFormStatus as useFormStatus
-} from 'react-dom';
+import { useFormState, useFormStatus } from 'react-dom';
 
 function SubmitButton({ type }: { type: 'plus' | 'minus' }) {
   const { pending } = useFormStatus();

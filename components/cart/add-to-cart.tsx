@@ -5,12 +5,7 @@ import { addItem } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
 import { ProductVariant } from 'lib/shopify/types';
 import { useSearchParams } from 'next/navigation';
-import {
-  // @ts-ignore
-  experimental_useFormState as useFormState,
-  // @ts-ignore
-  experimental_useFormStatus as useFormStatus
-} from 'react-dom';
+import { useFormState, useFormStatus } from 'react-dom';
 
 function SubmitButton({
   availableForSale,
