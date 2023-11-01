@@ -13,7 +13,7 @@ type Props = {
 
 const Instagram = ({ posts }: Props) => {
   return (
-    <section className="mx-auto max-w-screen-xl px-4 pb-12 md:pb-20">
+    <section className="mx-auto max-w-screen-lg px-4 pb-12 md:pb-20">
       <div className="border-b border-gray-200 py-5 text-center">
         <h2 className="text-title text-2xl font-bold md:text-4xl">インスタグラム</h2>
       </div>
@@ -23,14 +23,14 @@ const Instagram = ({ posts }: Props) => {
             <Link key={post.id} href={post.permalink} target="_blank" rel="noopener noreferrer">
               {post.media_type === 'VIDEO' ? (
                 <video
-                  className="h-auto w-full rounded-md object-cover md:h-full md:max-h-[350px]"
+                  className="h-auto w-full rounded-md object-cover md:h-full md:max-h-[300px]"
                   src={post.media_url}
                   controls
                 />
               ) : (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
-                  className="h-auto w-full rounded-md object-cover md:h-full md:max-h-[350px]"
+                  className="h-auto w-full rounded-md object-cover md:h-full md:max-h-[300px]"
                   src={post.media_url}
                   alt="インスタグラムの画像"
                 />

@@ -67,11 +67,11 @@ export async function KinuhikariCollection() {
   const [firstProduct, secondProduct, thirdProduct] = homepageItems;
 
   return (
-    <section className="mx-auto max-w-screen-xl px-4 pb-12 md:pb-20">
+    <section className="mx-auto max-w-screen-lg px-4 pb-12 md:pb-20">
       <div className="border-b border-gray-200 py-5 text-center">
         <h2 className="text-title text-2xl font-bold md:text-4xl">淡路島産キヌヒカリ一覧</h2>
       </div>
-      <div className="mt-5 flex overflow-x-auto md:mt-6 md:grid md:grid-cols-3 md:gap-10">
+      <div className="mt-5 flex overflow-x-auto md:mt-6 md:grid md:grid-cols-3 md:gap-6">
         <div className="mr-4 flex w-10/12 flex-shrink-0 flex-col md:mr-0 md:w-full">
           <KinuhikariCollectionItem size="half" item={firstProduct} priority={true} />
           <KinuhikariCollectionDescription product={firstProduct} />

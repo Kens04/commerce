@@ -9,7 +9,11 @@ import InstagramContainer from 'components/instagram/instagram-container';
 import Footer from 'components/layout/footer';
 import FetchNewsData from 'components/news/fetch-news-data';
 import NewsContainer from 'components/news/news-container';
+import { Faq } from 'components/section/faq';
+import { Feature } from 'components/section/feature';
+import { LettuceFlow } from 'components/section/lettuce-flow';
 import MainView from 'components/section/main-view';
+import { OnionFlow } from 'components/section/onion-flow';
 import { Suspense } from 'react';
 
 export const runtime = 'edge';
@@ -34,9 +38,13 @@ export default async function HomePage() {
       <LettuceCollection />
       <KinuhikariCollection />
       <ThreeItemGrid />
+      <OnionFlow />
+      <LettuceFlow />
+      <Feature />
       <Suspense>
         <Carousel />
         <InstagramContainer posts={posts} />
+        <Faq />
         <Suspense>
           <Footer />
         </Suspense>
