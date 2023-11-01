@@ -5,6 +5,7 @@ module.exports = {
     ignoreDuringBuilds: true
   },
   images: {
+    domains: ['images.microcms-assets.io'],
     formats: ['image/avif', 'image/webp'],
     remotePatterns: ['images.microcms-assets.io'],
     remotePatterns: [

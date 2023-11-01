@@ -4,7 +4,6 @@ import { LettuceCollection } from 'components/collections/lettuce-collection';
 import { OnionCollection } from 'components/collections/onion-collection';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import { FetchInstagramData } from 'components/instagram/fetch-instagram-data';
-
 import InstagramContainer from 'components/instagram/instagram-container';
 import Footer from 'components/layout/footer';
 import FetchNewsData from 'components/news/fetch-news-data';
