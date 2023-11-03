@@ -10,6 +10,7 @@ import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
 import Link from 'next/link';
+import Prose from 'components/prose';
 
 export const runtime = 'edge';
 
@@ -82,19 +83,30 @@ export default async function ProductPage({ params }: { params: { handle: string
         }}
       />
       <div className="mx-auto max-w-screen-2xl px-4">
-        <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-black md:p-12 lg:flex-row lg:gap-8">
-          <div className="h-full w-full basis-full lg:basis-4/6">
-            <Gallery
-              images={product.images.map((image: Image) => ({
-                src: image.url,
-                altText: image.altText
-              }))}
-            />
-          </div>
+        <div className="pb-5 pt-5 text-center md:mb-5 md:pt-20">
+          <h2 className="text-title text-xl font-bold md:text-4xl">{product.title}</h2>
+        </div>
+        <div className="dark:border-neutral-800 dark:bg-black md:rounded-lg md:border md:border-neutral-200 md:bg-white md:p-12">
+          <div className="flex flex-col gap-5 lg:flex-row lg:gap-8">
+            <div className="h-full w-full basis-full lg:basis-4/6">
+              <Gallery
+                images={product.images.map((image: Image) => ({
+                  src: image.url,
+                  altText: image.altText
+                }))}
+              />
+            </div>
 
-          <div className="basis-full lg:basis-2/6">
-            <ProductDescription product={product} />
+            <div className="basis-full lg:basis-1/2">
+              <ProductDescription product={product} />
+            </div>
           </div>
+          {product.descriptionHtml ? (
+            <Prose
+              className="text-body mb-6 text-sm leading-relaxed prose-h3:text-xl dark:text-white/[60%] md:mt-20 md:text-base md:leading-normal md:prose-h3:text-2xl"
+              html={product.descriptionHtml}
+            />
+          ) : null}
         </div>
         <Suspense>
           <RelatedProducts id={product.id} />

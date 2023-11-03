@@ -53,6 +53,11 @@
   color: var(--grass-11);
 }
 
+.title-bg {
+  color: #ffffff;
+  background-color: var(--grass-8);
+}
+
 a,
 input,
 button {

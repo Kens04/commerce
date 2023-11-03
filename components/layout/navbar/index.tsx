@@ -2,7 +2,7 @@ import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
 import LogoSquare from 'components/logo-square';
 import { getMenu } from 'lib/shopify';
-import { Menu } from 'lib/shopify/types';
+// import { Menu } from 'lib/shopify/types';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
@@ -27,7 +27,7 @@ export default async function Navbar() {
           </Link>
           {menu.length ? (
             <ul className="hidden gap-6 text-sm md:flex md:items-center">
-              {menu.map((item: Menu) => (
+              {/* {menu.map((item: Menu) => (
                 <li key={item.title}>
                   <Link
                     href={item.path}
@@ -36,7 +36,23 @@ export default async function Navbar() {
                     {item.title}
                   </Link>
                 </li>
-              ))}
+              ))} */}
+              <li>
+                <Link
+                  href="/"
+                  className="text-body text-base underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
+                >
+                  ホーム
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/search"
+                  className="text-body text-base underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
+                >
+                  淡路島産の野菜一覧
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/news/p/1"
